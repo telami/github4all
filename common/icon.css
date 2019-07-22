@@ -63,6 +63,7 @@
 
 .cuIcon-favorfill:before {
 	content: "\e64b";
+	color: #FFD700;
 }
 
 .cuIcon-favor:before {
@@ -839,6 +840,7 @@
 
 .cuIcon-hotfill:before {
 	content: "\e757";
+	color: #DC143C;
 }
 
 .cuIcon-hot:before {
@@ -1191,6 +1193,7 @@
 
 .cuIcon-fork:before {
 	content: "\e60c";
+	color: #1E90FF;
 }
 
 .cuIcon-pick:before {

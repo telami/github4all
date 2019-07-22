@@ -919,7 +919,7 @@ button.cuIcon.lg {
 }
 
 .cu-avatar-group .cu-avatar.sm {
-	margin-left: -20upx;
+	margin-left: 1upx;
 	border: 1upx solid #f1f1f1;
 }
 
@@ -3029,6 +3029,10 @@ scroll-view.cu-steps .cu-item {
 
 .margin-top-xl {
 	margin-top: 50upx;
+}
+
+.margin-right-5 {
+	margin-right: 5upx;
 }
 
 .margin-right-xs {

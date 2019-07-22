@@ -5,6 +5,9 @@
 			"style": {
 				"navigationBarTitleText": "trending"
 			}
+		},
+		{
+			"path": "pages/web-view/web-view"
 		}
 	],
 	"globalStyle": {

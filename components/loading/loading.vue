@@ -44,7 +44,7 @@
 				content: "";
 				width: 50px;
 				height: 50px;
-				background: #00adb5;
+				background: #007BFF;
 				animation: animate 0.5s linear infinite;
 				position: absolute;
 				top: 0;
