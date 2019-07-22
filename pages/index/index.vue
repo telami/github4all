@@ -1,12 +1,13 @@
 <template>
 	<view class="container">
+		<modal :languages="languages" @select="onSelect"></modal>
 		<view class="trending-wrapper">
-			<view class="trending padding-xs margin-tb-sm flex bg-white radius" v-for="(item,index) in projects" :key="index">
+			<view class="trending padding-xs margin-sm flex bg-white radius shadow-warp" v-for="(item,index) in projects" :key="index">
 				<view class="detail-wrapper flex flex-direction justify-between flex-treble">
 					<view class="text-df text-blue padding-xs margin-xs">
 						<text @click="goUrl('https://github.com/'+item.author)">{{item.author}}</text>
 						/
-						<text @click="goUrl(item.url)" class="text-bold">{{item.name}}</text>
+						<text @click="goUrl(item.url)" class="text-bold animation-fade">{{item.name}}</text>
 					</view>
 					<view class="cu-avatar-group padding-xs margin-xs">
 						<text class="padding-right">Built by</text>
@@ -44,27 +45,36 @@
 
 <script>
 	import loading from '@/components/loading/loading.vue'
+	import modal from '@/components/modal/modal.vue'
 	import {
-		getRepositories
+		getRepositories,
+		getLanguages
 	} from '@/api/api'
 
 	export default {
 		data() {
 			return {
 				projects: [],
-				language: '',
-				since: '',
-				loading: true
+				currentLanguage: '',
+				currentSince: '',
+				loading: true,
+				languages: []
 			}
 		},
 		onLoad() {
 			this._getRepositories()
+			this._getLanguages()
 		},
 		methods: {
-			_getRepositories() {
-				getRepositories().then((res) => {
+			_getRepositories(language, since) {
+				getRepositories(language, since).then((res) => {
 					this.projects = res
 					this.loading = false
+				})
+			},
+			_getLanguages() {
+				getLanguages().then((res) => {
+					this.languages = res
 				})
 			},
 			goUrl(url) {
@@ -76,10 +86,20 @@
 					url: '/pages/web-view/web-view?url=' + url
 				});
 				// #endif
+			},
+			onSelect(lang) {
+				this.currentLanguage = lang
 			}
 		},
 		components: {
-			loading
+			loading,
+			modal
+		},
+		watch: {
+			currentLanguage() {
+				console.log(this.currentLanguage)
+				this._getRepositories(this.currentLanguage)
+			}
 		}
 	}
 </script>
