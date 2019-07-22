@@ -1,12 +1,3 @@
-/*
-  ColorUi for uniApp  v2.1.6 | by 文晓港 2019-05-31 10:44:24
-  仅供学习交流，如作它用所承受的法律责任一概与作者无关  
-  
-  *使用ColorUi开发扩展与插件时，请注明基于ColorUi开发 
-  
-  （QQ交流群：240787041）
-*/
-
 /* ==================
         初始化
  ==================== */
@@ -14,7 +5,7 @@ body {
 	background-color: #f1f1f1;
 	font-size: 28upx;
 	color: #333333;
-	font-family: Helvetica Neue, Helvetica, sans-serif;
+	font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
 }
 
 view,
@@ -915,9 +906,9 @@ button.cuIcon.lg {
 }
 
 .cu-avatar-group {
-	direction: rtl;
+	direction: ltr;
 	unicode-bidi: bidi-override;
-	padding: 0 10upx 0 0upx;
+	padding: 0 10upx 0 10upx;
 	display: inline-block;
 }
 
@@ -3860,7 +3851,7 @@ scroll-view.cu-steps .cu-item {
 .text-blue,
 .line-blue,
 .lines-blue {
-	color: #0081ff;
+	color: #007BFF;
 }
 
 .text-purple,
