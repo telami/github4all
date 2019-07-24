@@ -17,24 +17,24 @@
 					<view class="desc padding-left-xs margin-xs">{{item.description}}</view>
 					<view class="bottom-wrapper text-sm flex justify-between padding-xs margin-xs">
 						<view v-if="item.language" class="language-wrapper">
-							<view :style="{'background-color':item.languageColor}" class="circle margin-right-5"></view>
+							<view :style="{'background-color':item.languageColor}" class="circle margin-right-xs"></view>
 							<text>{{item.language}}</text>
 						</view>
 						<text>
-							<text class="cuIcon-favorfill margin-right-5"></text>
+							<text class="cuIcon-favorfill margin-right-xs"></text>
 							<text>{{item.stars}}</text>
 						</text>
 						<text>
-							<text class="cuIcon-fork margin-right-5"></text>
+							<text class="cuIcon-fork margin-right-xs"></text>
 							<text>{{item.forks}}</text>
 						</text>
 						<text>
-							<text class="cuIcon-hotfill margin-right-5"></text>
+							<text class="cuIcon-hotfill margin-right-xs"></text>
 							<text>{{item.currentPeriodStars}}</text>
 						</text>
 					</view>
 				</view>
-				<view class="image-wrapper flex-sub flex flex-direction justify-center" @click="goUrl('https://github.com/'+item.author)">
+				<view class="image-wrapper" @click="goUrl('https://github.com/'+item.author)">
 					<image lazy-load="true" class="round margin-xs" :src="item.avatar"></image>
 				</view>
 			</view>
@@ -111,6 +111,7 @@
 
 				.detail-wrapper {
 					.desc {
+						width: 70%;
 						text-overflow: ellipsis;
 						overflow: hidden;
 						color: #000;
@@ -135,6 +136,10 @@
 				}
 
 				.image-wrapper {
+
+					position: absolute;
+					right: 30rpx;
+					bottom: 80rpx;
 
 					image {
 						width: 150rpx;
