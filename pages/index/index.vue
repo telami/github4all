@@ -1,6 +1,7 @@
 <template>
 	<view class="container">
-		<modal :languages="languages" @select="onSelect"></modal>
+		<modal :languages="languages" @language="onLanguage" @since="onSince"></modal>
+		<loading v-if="loading"></loading>
 		<view class="trending-wrapper">
 			<view class="trending padding-xs margin-sm flex bg-white radius shadow-warp" v-for="(item,index) in projects" :key="index">
 				<view class="detail-wrapper flex flex-direction justify-between flex-treble">
@@ -39,7 +40,6 @@
 				</view>
 			</view>
 		</view>
-		<loading v-if="loading"></loading>
 	</view>
 </template>
 
@@ -67,6 +67,8 @@
 		},
 		methods: {
 			_getRepositories(language, since) {
+				this.loading = true
+				this.projects = []
 				getRepositories(language, since).then((res) => {
 					this.projects = res
 					this.loading = false
@@ -87,8 +89,11 @@
 				});
 				// #endif
 			},
-			onSelect(lang) {
-				this.currentLanguage = lang
+			onLanguage(lang) {
+				this.currentLanguage = lang === 'all' ? '' : lang
+			},
+			onSince(since) {
+				this.currentSince = since
 			}
 		},
 		components: {
@@ -97,8 +102,10 @@
 		},
 		watch: {
 			currentLanguage() {
-				console.log(this.currentLanguage)
-				this._getRepositories(this.currentLanguage)
+				this._getRepositories(this.currentLanguage,this.currentSince)
+			},
+			currentSince() {
+				this._getRepositories(this.currentLanguage,this.currentSince)
 			}
 		}
 	}

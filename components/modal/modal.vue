@@ -1,66 +1,130 @@
 <template>
-	<view class="container">
-		<view class="lang-select action padding-xs margin-xs">
-			<button class="cu-btn bg-blue shadow" @tap="showModal" data-target="DrawerModalR">{{currentLanguage}}</button>
-		</view>
-		<view class="cu-modal drawer-modal justify-between" :class="modalName=='DrawerModalR'?'show':''" @tap="hideModal">
-			<view class="cu-dialog basis-lg" :style="[{top:CustomBar+'px',height:'calc(100vh - ' + CustomBar + 'px)'}]">
-				<scroll-view scroll-y="true" style="height: 740px">
-					<view class="flex flex-wrap justify-between">
-						<view v-for="(item,index) in languages" :key="index">
-							<view class="padding flex flex-direction">
-								<button @tap.stop="selectLang(item.urlParam)" class="cu-btn bg-blue lg">{{item.name}}</button>
-							</view>
-						</view>
-					</view>
-				</scroll-view>
-			</view>
-		</view>
-	</view>
+    <view class="container">
+        <view class="cu-bar bg-white">
+            <view class="action">
+                <button class="cu-btn bg-blue shadow" @tap="showModal" data-target="SinceModal">{{currentSince}}
+                </button>
+            </view>
+            <view class="action">
+                <button class="cu-btn bg-blue shadow" @tap="showModal" data-target="LanguageModal">{{currentLanguage}}
+                </button>
+            </view>
+        </view>
+
+        <view class="cu-modal" :class="modalName==='SinceModal'?'show':''" @tap="hideModal">
+            <view class="cu-dialog" @tap.stop="">
+                <radio-group class="block" @change="sinceChange">
+                    <view class="cu-list menu text-left">
+                        <view class="cu-item" v-for="(item,index) in sinces" :key="index">
+                            <label class="flex justify-between align-center flex-sub">
+                                <view class="flex-sub">{{item.name}}</view>
+                                <radio class="round" :checked="radio=='radio' + index?true:false"
+                                       :value="item.urlParam"></radio>
+                            </label>
+                        </view>
+                    </view>
+                </radio-group>
+            </view>
+        </view>
+
+        <view class="cu-modal" :class="modalName==='LanguageModal'?'show':''" @tap="hideModal">
+            <view class="cu-dialog" @tap.stop="">
+                <radio-group class="block" @change="languageChange">
+                    <view class="cu-list menu text-left">
+                        <view class="cu-item" v-for="(item,index) in languages" :key="index">
+                            <label class="flex justify-between align-center flex-sub">
+                                <view class="flex-sub">{{item.name}}</view>
+                                <radio class="round" :checked="radio=='radio' + index?true:false"
+                                       :value="item.urlParam"></radio>
+                            </label>
+                        </view>
+                    </view>
+                </radio-group>
+            </view>
+        </view>
+    </view>
 </template>
 
 <script>
-	const EVENT_SELECT = 'select'
+    const EVENT_LANGUAGE = 'language'
+    const EVENT_SINCE = 'since'
 
-	export default {
-		name: "modal",
-		props: {
-			languages: {
-				type: Array,
-				default () {
-					return []
-				}
-			},
-		},
-		data() {
-			return {
-				CustomBar: this.CustomBar,
-				modalName: null,
-				currentLanguage: 'All language'
-			}
-		},
-		methods: {
-			showModal(e) {
-				this.modalName = e.currentTarget.dataset.target
-			},
-			hideModal(e) {
-				this.modalName = null
-			},
-			selectLang(lang) {
-				this.currentLanguage = lang
-				this.$emit(EVENT_SELECT, lang)
-				this.hideModal()
-			}
-		}
-	}
+    export default {
+        name: "modal",
+        props: {},
+        data() {
+            return {
+                CustomBar: this.CustomBar,
+                modalName: '',
+                currentLanguage: 'All language',
+                currentSince: 'Daily',
+                radio: 'radio0',
+                sinces: [
+                    {urlParam: "daily", name: "Daily"},
+                    {urlParam: "weekly", name: "Weekly"},
+                    {urlParam: "monthly", name: "Monthly"}
+                ],
+
+                languages: [
+                    {urlParam: "all", name: "All language"},
+                    {urlParam: "java", name: "Java"},
+                    {urlParam: "python", name: "Python"},
+                    {urlParam: "vue", name: "Vue"},
+                    {urlParam: "c", name: "C"},
+                    {urlParam: "c++", name: "C++"},
+                    {urlParam: "php", name: "PHP"},
+                    {urlParam: "go", name: "Go"},
+                    {urlParam: "javascript", name: "Javascript"},
+                    {urlParam: "ruby", name: "Ruby"},
+                    {urlParam: "css", name: "Css"},
+                    {urlParam: "shell", name: "Shell"},
+                    {urlParam: "html", name: "Html"},
+                    {urlParam: "lua", name: "Lua"}
+                ]
+            }
+        },
+        methods: {
+            showModal(e) {
+                this.modalName = e.currentTarget.dataset.target
+            },
+            hideModal(e) {
+                this.modalName = null
+            },
+            languageChange(e) {
+                this.currentLanguage = this.getLanguageName(e.detail.value)
+                this.$emit(EVENT_LANGUAGE, e.detail.value)
+                this.hideModal()
+            },
+            sinceChange(e) {
+                this.currentSince = this.getSinceName(e.detail.value)
+                this.$emit(EVENT_SINCE, e.detail.value)
+                this.hideModal()
+            },
+            getLanguageName(urlParam) {
+                for (let language of this.languages) {
+                    if (urlParam === language.urlParam) {
+                        return language.name
+                    }
+                }
+            },
+            getSinceName(urlParam) {
+                for (let since of this.sinces) {
+                    if (urlParam === since.urlParam) {
+                        return since.name
+                    }
+                }
+            }
+        }
+    }
 </script>
 
 <style scoped lang="scss">
-	.container{
-		.lang-select{
-			position: fixed;
-			z-index: 1000;
-		}
-	}
+    .container {
+        .lang-select {
+            width: 100%;
+            position: fixed;
+            z-index: 1000;
+        }
+    }
 
 </style>

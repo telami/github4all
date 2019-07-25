@@ -6,12 +6,12 @@ import {
  * Get repositories
  */
 export function getRepositories(language, since) {
-	console.log(language + since)
+
 	let data = {
 		language: language === undefined ? '' : language,
 		since: since === undefined ? '' : since,
 	}
-	console.log(data)
+
 	return http.get('/repositories', data).then(res => res.data)
 }
 
