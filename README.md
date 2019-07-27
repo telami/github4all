@@ -1,12 +1,12 @@
-<h1 align="center">Github4All</h1>
+## Github4All
 
-<div align="center">Find the most starred projects on GitHub</div>
+>Yeah, it's GitHub trending,and it should be a mini program.
 
-<div align="center">✨ Vue and Uniapp to go through the top projects ✨</div>
+>The reason it was published as H5 instead of mini program is that web-view only supports enterprise users.
 
-<br/>
+>I have no choice，just waiting for someday Individuals can use webviews
 
-<div align="center" style="margin-top: 20px;"><image src="https://camo.githubusercontent.com/8f697c48adc5026cc6d83dd45e42b9b93ee1803c/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f636f6e747269627574696f6e732d77656c636f6d652d627269676874677265656e2e737667"/><image src="https://camo.githubusercontent.com/3ccf4c50a1576b0dd30b286717451fa56b783512/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4c6963656e73652d4d49542d79656c6c6f772e737667"/></div>
+![index](https://camo.githubusercontent.com/8f697c48adc5026cc6d83dd45e42b9b93ee1803c/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f636f6e747269627574696f6e732d77656c636f6d652d627269676874677265656e2e737667)![index](https://camo.githubusercontent.com/3ccf4c50a1576b0dd30b286717451fa56b783512/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4c6963656e73652d4d49542d79656c6c6f772e737667)
 
 ![index](./static/index.png) ![Language](./static/language.png)  
 
@@ -15,6 +15,7 @@
 
 ## Online
 
+> Open developer mode or use the phone
 * [Click ME~](https://www.telami.cn/trending/)
 
 
@@ -29,4 +30,4 @@ If you like Github4All, you can give a star ⭐ on [GitHub](https://github.com/
 
 ## License
 
-This project is licensed under the terms of the [MIT license]().
+This project is licensed under the terms of the [MIT license](https://github.com/telami/github4all/blob/master/LICENSE).
