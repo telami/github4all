@@ -16,8 +16,15 @@ export function getRepositories(language, since) {
 }
 
 /**
- *
+ * Get all languages
  */
 export function getLanguages() {
 	return http.get('/languages').then(res => res.data)
+}
+
+/**
+ * Get all languages
+ */
+export function getReadme(author, repository) {
+	return http.get('https://api.github.com/repos/' + author + '/' + repository + '/contents/README.md').then(res => res.data)
 }

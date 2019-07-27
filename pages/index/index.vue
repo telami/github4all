@@ -84,6 +84,7 @@
 				window.open(url)
 				// #endif
 				// #ifdef MP
+				//I have no choice , just wait
 				uni.navigateTo({
 					url: '/pages/web-view/web-view?url=' + url
 				});
@@ -102,10 +103,10 @@
 		},
 		watch: {
 			currentLanguage() {
-				this._getRepositories(this.currentLanguage,this.currentSince)
+				this._getRepositories(this.currentLanguage, this.currentSince)
 			},
 			currentSince() {
-				this._getRepositories(this.currentLanguage,this.currentSince)
+				this._getRepositories(this.currentLanguage, this.currentSince)
 			}
 		}
 	}

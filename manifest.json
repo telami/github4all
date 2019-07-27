@@ -70,5 +70,12 @@
     },
     "mp-toutiao" : {
         "usingComponents" : true
+    },
+    "h5" : {
+        "title" : "Trending",
+        "domain" : "https://www.telami.cn",
+        "router" : {
+            "base" : "/trending/"
+        }
     }
 }
