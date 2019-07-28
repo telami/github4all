@@ -1,5 +1,7 @@
 ## Github4All
 
+[中文](./README-zh.md)
+
 >Yeah, it's GitHub trending,and it should be a mini program.
 
 >The reason it was published as H5 instead of mini program is that web-view only supports enterprise users.
