@@ -1,6 +1,6 @@
 ## Github4All
 
-[中文](./README-zh.md)
+- [中文版](./README-zh.md)
 
 >Yeah, it's GitHub trending,and it should be a mini program.
 
