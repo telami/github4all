@@ -44,7 +44,8 @@
 				content: "";
 				width: 50px;
 				height: 50px;
-				background: #007BFF;
+				background-image: linear-gradient(45deg, #0081ff, #1cbbb4);
+				color: #ffffff;
 				animation: animate 0.5s linear infinite;
 				position: absolute;
 				top: 0;

@@ -1,12 +1,12 @@
 <template>
     <view class="container">
-        <view class="cu-bar bg-white">
+        <view class="cu-bar">
             <view class="action">
-                <button class="cu-btn bg-blue shadow" @tap="showModal" data-target="SinceModal">{{currentSince}}
+                <button class="cu-btn bg-gradual-blue shadow-warp" @tap="showModal" data-target="SinceModal">{{currentSince}}
                 </button>
             </view>
             <view class="action">
-                <button class="cu-btn bg-blue shadow" @tap="showModal" data-target="LanguageModal">{{currentLanguage}}
+                <button class="cu-btn bg-gradual-blue shadow brown" @tap="showModal" data-target="LanguageModal">{{currentLanguage}}
                 </button>
             </view>
         </view>

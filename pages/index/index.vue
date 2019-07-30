@@ -1,7 +1,6 @@
 <template>
 	<view class="container">
-		<modal :languages="languages" @language="onLanguage" @since="onSince"></modal>
-		<loading v-if="loading"></loading>
+		<modal class="modal" :languages="languages" @language="onLanguage" @since="onSince"></modal>
 		<view class="trending-wrapper">
 			<view class="trending padding-xs margin-sm flex bg-white radius shadow-warp" v-for="(item,index) in projects" :key="index">
 				<view class="detail-wrapper flex flex-direction justify-between flex-treble">
@@ -40,6 +39,7 @@
 				</view>
 			</view>
 		</view>
+		<loading v-if="loading"></loading>
 	</view>
 </template>
 
@@ -114,7 +114,16 @@
 
 <style lang="scss">
 	.container {
+		.modal {
+			position: fixed;
+			width: 100%;
+			z-index: 10001;
+		}
+
 		.trending-wrapper {
+			padding-top: 80rpx;
+			padding-bottom: 10rpx;
+
 			.trending {
 
 				.detail-wrapper {
